@@ -1,0 +1,23 @@
+namespace :npm do
+  desc <<-DESC
+        Build package using grunt.
+
+    DESC
+  task :install do
+    on roles fetch(:grunt_roles) do
+      within release_path do
+        execute :grunt,
+         fetch(:grunt_flags)
+      end
+    end
+  end
+
+  before 'deploy:updated', 'grunt'
+end
+
+namespace :load do
+  task :defaults do
+    set :grunt_flags, ''
+    set :grunt_roles, :all
+  end
+end
