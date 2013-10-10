@@ -1,4 +1,4 @@
-namespace :npm do
+namespace :grunt do
   desc <<-DESC
         Build package using grunt.
 
