@@ -12,7 +12,7 @@ namespace :grunt do
     end
   end
 
-  before 'deploy:updated', 'grunt'
+  before 'deploy:updated', 'grunt:install'
 end
 
 namespace :load do
